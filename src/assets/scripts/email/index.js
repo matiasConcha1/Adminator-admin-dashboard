@@ -1,25 +1,37 @@
-export default (function () {
-  // Email side toggle functionality
+function bindEmailInteractions() {
   const emailSideToggle = document.querySelector('.email-side-toggle');
   const emailApp = document.querySelector('.email-app');
-  
+
   if (emailSideToggle && emailApp) {
-    emailSideToggle.addEventListener('click', e => {
+    const clonedToggle = emailSideToggle.cloneNode(true);
+    emailSideToggle.replaceWith(clonedToggle);
+
+    clonedToggle.addEventListener('click', (event) => {
       emailApp.classList.toggle('side-active');
-      e.preventDefault();
+      event.preventDefault();
     });
   }
 
-  // Email list item and back to mailbox functionality
-  const emailListItems = document.querySelectorAll('.email-list-item, .back-to-mailbox');
   const emailContent = document.querySelector('.email-content');
-  
-  if (emailListItems.length > 0 && emailContent) {
-    emailListItems.forEach(item => {
-      item.addEventListener('click', e => {
-        emailContent.classList.toggle('open');
-        e.preventDefault();
-      });
-    });
+  const emailItems = document.querySelectorAll('.email-list-item, .back-to-mailbox');
+
+  if (!emailContent || emailItems.length === 0) {
+    return;
   }
-}())
+
+  emailItems.forEach((item) => {
+    const clonedItem = item.cloneNode(true);
+    item.replaceWith(clonedItem);
+
+    clonedItem.addEventListener('click', (event) => {
+      emailContent.classList.toggle('open');
+      event.preventDefault();
+    });
+  });
+}
+
+bindEmailInteractions();
+
+export default {
+  init: bindEmailInteractions,
+};
