@@ -50,8 +50,8 @@ export default (function () {
         searchWrapper.className = 'datatable-search';
         searchWrapper.innerHTML = `
           <label>
-            Search: 
-            <input type="text" class="form-control" placeholder="Search...">
+            Buscar:
+            <input type="text" class="form-control" placeholder="Buscar...">
           </label>
         `;
         wrapper.appendChild(searchWrapper);
@@ -280,7 +280,7 @@ export default (function () {
       
       // Previous button
       const prevBtn = document.createElement('button');
-      prevBtn.textContent = 'Previous';
+      prevBtn.textContent = 'Anterior';
       prevBtn.disabled = this.currentPage === 1;
       prevBtn.addEventListener('click', () => {
         if (this.currentPage > 1) {
@@ -304,7 +304,7 @@ export default (function () {
       
       // Next button
       const nextBtn = document.createElement('button');
-      nextBtn.textContent = 'Next';
+      nextBtn.textContent = 'Siguiente';
       nextBtn.disabled = this.currentPage === totalPages;
       nextBtn.addEventListener('click', () => {
         if (this.currentPage < totalPages) {
@@ -323,7 +323,7 @@ export default (function () {
       const endIndex = Math.min(startIndex + this.options.pageSize - 1, this.filteredData.length);
       const total = this.filteredData.length;
       
-      infoWrapper.textContent = `Showing ${startIndex} to ${endIndex} of ${total} entries`;
+      infoWrapper.textContent = `Mostrando ${startIndex} a ${endIndex} de ${total} registros`;
     }
     
     destroy() {
