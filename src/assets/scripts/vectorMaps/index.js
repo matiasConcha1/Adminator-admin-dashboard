@@ -192,8 +192,8 @@ export default (function () {
         ">
           <div style="text-align: center;">
             <div style="font-size: 24px; margin-bottom: 8px;">🗺️</div>
-            <div>World Map</div>
-            <div style="font-size: 12px; margin-top: 4px;">Interactive map will load here</div>
+            <div>Mapa mundial</div>
+            <div style="font-size: 12px; margin-top: 4px;">El mapa interactivo se cargara aqui</div>
           </div>
         </div>
       `;
