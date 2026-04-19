@@ -366,29 +366,29 @@ export default (function () {
   }
   
   // Initialize all components
-  const initComponents = () => {
+  const initComponents = (root = document) => {
     // Initialize modals
-    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
+    root.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
       new VanillaModal(element);
     });
     
     // Initialize dropdowns
-    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(element => {
+    root.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(element => {
       new VanillaDropdown(element);
     });
     
     // Initialize popovers
-    document.querySelectorAll('[data-bs-toggle="popover"]').forEach(element => {
+    root.querySelectorAll('[data-bs-toggle="popover"]').forEach(element => {
       new VanillaPopover(element);
     });
     
     // Initialize tooltips
-    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(element => {
+    root.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(element => {
       new VanillaTooltip(element);
     });
     
     // Initialize accordions
-    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(element => {
+    root.querySelectorAll('[data-bs-toggle="collapse"]').forEach(element => {
       new VanillaAccordion(element);
     });
   };
