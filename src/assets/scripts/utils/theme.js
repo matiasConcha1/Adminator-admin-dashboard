@@ -132,6 +132,7 @@ const Theme = {
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
       toggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     }
 
     // Dispatch event for other components
