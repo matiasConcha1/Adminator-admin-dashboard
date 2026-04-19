@@ -15,16 +15,16 @@ export default (function () {
     new Chart(lineCtx, {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
         datasets: [{
-          label                : 'Series A',
+          label                : 'Serie A',
           backgroundColor      : 'rgba(237, 231, 246, 0.5)',
           borderColor          : COLORS['deep-purple-500'],
           pointBackgroundColor : COLORS['deep-purple-700'],
           borderWidth          : 2,
           data                 : [60, 50, 70, 60, 50, 70, 60],
         }, {
-          label                : 'Series B',
+          label                : 'Serie B',
           backgroundColor      : 'rgba(232, 245, 233, 0.5)',
           borderColor          : COLORS['blue-500'],
           pointBackgroundColor : COLORS['blue-700'],
@@ -54,15 +54,15 @@ export default (function () {
     new Chart(barCtx, {
       type: 'bar',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
         datasets: [{
-          label           : 'Dataset 1',
+          label           : 'Serie 1',
           backgroundColor : COLORS['deep-purple-500'],
           borderColor     : COLORS['deep-purple-800'],
           borderWidth     : 1,
           data            : [10, 50, 20, 40, 60, 30, 70],
         }, {
-          label           : 'Dataset 2',
+          label           : 'Serie 2',
           backgroundColor : COLORS['light-blue-500'],
           borderColor     : COLORS['light-blue-800'],
           borderWidth     : 1,
@@ -91,12 +91,12 @@ export default (function () {
     new Chart(areaCtx, {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
         datasets: [{
           backgroundColor : 'rgba(3, 169, 244, 0.5)',
           borderColor     : COLORS['light-blue-800'],
           data            : [10, 50, 20, 40, 60, 30, 70],
-          label           : 'Dataset',
+          label           : 'Serie',
           fill            : 'start',
         }],
       },
@@ -116,7 +116,7 @@ export default (function () {
       type: 'scatter',
       data: {
         datasets: [{
-          label           : 'My First dataset',
+          label           : 'Serie A',
           borderColor     : COLORS['red-500'],
           backgroundColor : COLORS['red-500'],
           data: [
@@ -129,7 +129,7 @@ export default (function () {
             { x: 130, y: 140 },
           ],
         }, {
-          label           : 'My Second dataset',
+          label           : 'Serie B',
           borderColor     : COLORS['green-500'],
           backgroundColor : COLORS['green-500'],
           data: [

@@ -195,7 +195,7 @@ class ChartComponent {
     const ctx = canvas.getContext('2d');
     
     // Enhanced data for monthly stats
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['Ene', 'Feb', 'Mar', 'Abr', 'Mayo', 'Junio', 'Julio', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
     const salesData = [120, 135, 145, 165, 180, 195, 210, 225, 240, 220, 200, 185];
     const profitData = [45, 52, 58, 62, 68, 75, 82, 88, 92, 85, 78, 72];
     
@@ -205,7 +205,7 @@ class ChartComponent {
         labels: months,
         datasets: [
           {
-            label: 'Sales ($K)',
+            label: 'Ventas ($K)',
             data: salesData,
             borderColor: '#4caf50',
             backgroundColor: 'rgba(76, 175, 80, 0.1)',
@@ -219,7 +219,7 @@ class ChartComponent {
             fill: false,
           },
           {
-            label: 'Profit ($K)',
+            label: 'Ganancias ($K)',
             data: profitData,
             borderColor: '#2196f3',
             backgroundColor: 'rgba(33, 150, 243, 0.1)',
@@ -590,7 +590,7 @@ class ChartComponent {
           tooltip: {
             enabled: true,
             callbacks: {
-              label: (context) => `${context.parsed.y}°Celsius`,
+              label: (context) => `${context.parsed.y} grados`,
             },
           },
         },
@@ -672,9 +672,9 @@ class ChartComponent {
   createChartsPageCharts() {
     // Line Chart
     this.createLargeChart('line-chart', 'line', {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
       datasets: [{
-        label: 'Dataset 1',
+        label: 'Serie 1',
         data: [65, 59, 80, 81, 56, 55, 40],
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -684,9 +684,9 @@ class ChartComponent {
 
     // Area Chart
     this.createLargeChart('area-chart', 'line', {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
       datasets: [{
-        label: 'Dataset 1',
+        label: 'Serie 1',
         data: [65, 59, 80, 81, 56, 55, 40],
         borderColor: 'rgb(54, 162, 235)',
         backgroundColor: 'rgba(54, 162, 235, 0.4)',
@@ -698,7 +698,7 @@ class ChartComponent {
     // Scatter Chart with more data points
     this.createLargeChart('scatter-chart', 'scatter', {
       datasets: [{
-        label: 'Dataset 1',
+        label: 'Serie 1',
         data: [
           {x: -15, y: 8}, {x: -12, y: 12}, {x: -8, y: 3}, {x: -5, y: 15},
           {x: -2, y: 7}, {x: 0, y: 10}, {x: 3, y: 18}, {x: 6, y: 5},
@@ -710,7 +710,7 @@ class ChartComponent {
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 1,
       }, {
-        label: 'Dataset 2',
+        label: 'Serie 2',
         data: [
           {x: -13, y: 4}, {x: -9, y: 8}, {x: -6, y: 13}, {x: -1, y: 6},
           {x: 2, y: 11}, {x: 5, y: 15}, {x: 8, y: 2}, {x: 13, y: 17},
@@ -724,9 +724,9 @@ class ChartComponent {
 
     // Bar Chart
     this.createLargeChart('bar-chart', 'bar', {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Rojo', 'Azul', 'Amarillo', 'Verde', 'Purpura', 'Naranja'],
       datasets: [{
-        label: '# of Votes',
+        label: 'Total de votos',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
@@ -750,9 +750,9 @@ class ChartComponent {
 
     // Doughnut Chart
     this.createLargeChart('doughnut-chart', 'doughnut', {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Rojo', 'Azul', 'Amarillo', 'Verde', 'Purpura', 'Naranja'],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Serie principal',
         data: [300, 50, 100, 75, 120, 60],
         backgroundColor: [
           'rgba(255, 99, 132, 0.8)',
@@ -777,9 +777,9 @@ class ChartComponent {
 
     // Polar Area Chart
     this.createLargeChart('polar-chart', 'polarArea', {
-      labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+      labels: ['Rojo', 'Verde', 'Amarillo', 'Gris', 'Azul'],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Serie principal',
         data: [11, 16, 7, 3, 14],
         backgroundColor: [
           'rgba(255, 99, 132, 0.7)',
@@ -801,9 +801,9 @@ class ChartComponent {
 
     // Radar Chart
     this.createLargeChart('radar-chart', 'radar', {
-      labels: ['Speed', 'Reliability', 'Comfort', 'Safety', 'Efficiency', 'Innovation'],
+      labels: ['Velocidad', 'Confiabilidad', 'Comodidad', 'Seguridad', 'Eficiencia', 'Innovacion'],
       datasets: [{
-        label: 'Product A',
+        label: 'Producto A',
         data: [65, 59, 90, 81, 56, 55],
         fill: true,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -814,7 +814,7 @@ class ChartComponent {
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(54, 162, 235)',
       }, {
-        label: 'Product B',
+        label: 'Producto B',
         data: [28, 48, 40, 95, 86, 27],
         fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -829,17 +829,17 @@ class ChartComponent {
 
     // Mixed Chart (Bar + Line)
     this.createLargeChart('mixed-chart', 'bar', {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      labels: ['Ene', 'Feb', 'Mar', 'Abr', 'Mayo', 'Junio'],
       datasets: [{
         type: 'bar',
-        label: 'Sales',
+        label: 'Ventas',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: 'rgba(54, 162, 235, 0.7)',
         borderColor: 'rgb(54, 162, 235)',
         borderWidth: 1,
       }, {
         type: 'line',
-        label: 'Revenue',
+        label: 'Ingresos',
         data: [18, 25, 8, 15, 12, 18],
         fill: false,
         borderColor: 'rgb(255, 99, 132)',
@@ -854,7 +854,7 @@ class ChartComponent {
     // Bubble Chart
     this.createLargeChart('bubble-chart', 'bubble', {
       datasets: [{
-        label: 'First Dataset',
+        label: 'Serie 1',
         data: [
           {x: 20, y: 30, r: 15},
           {x: 40, y: 10, r: 10},
@@ -868,7 +868,7 @@ class ChartComponent {
         borderColor: 'rgb(54, 162, 235)',
         borderWidth: 2,
       }, {
-        label: 'Second Dataset',
+        label: 'Serie 2',
         data: [
           {x: 15, y: 45, r: 12},
           {x: 35, y: 15, r: 16},
@@ -1026,7 +1026,7 @@ class ChartComponent {
             ...baseOptions.plugins.tooltip,
             callbacks: {
               label(context) {
-                return `${context.dataset.label}: (${context.parsed.x}, ${context.parsed.y}), Size: ${context.parsed._custom}`;
+                return `${context.dataset.label}: (${context.parsed.x}, ${context.parsed.y}), Tamano: ${context.parsed._custom}`;
               },
             },
           },
@@ -1141,7 +1141,7 @@ class ChartComponent {
           tooltip: {
             enabled: true,
             callbacks: {
-              label: (context) => `${context.parsed.y}°Celsius`,
+              label: (context) => `${context.parsed.y} grados`,
             },
           },
         },
@@ -1190,7 +1190,7 @@ class ChartComponent {
           tooltip: {
             enabled: true,
             callbacks: {
-              label: (context) => `${context.parsed.y}°Celsius`,
+              label: (context) => `${context.parsed.y} grados`,
             },
           },
         },
@@ -1242,7 +1242,7 @@ class ChartComponent {
           tooltip: {
             enabled: true,
             callbacks: {
-              label: (context) => `${context.parsed.x}°Celsius`,
+              label: (context) => `${context.parsed.x} grados`,
             },
           },
         },
@@ -1298,7 +1298,7 @@ class ChartComponent {
           tooltip: {
             enabled: true,
             callbacks: {
-              label: (context) => `${context.parsed.y}°Celsius`,
+              label: (context) => `${context.parsed.y} grados`,
             },
           },
         },
@@ -1388,3 +1388,5 @@ class ChartComponent {
 }
 
 export default ChartComponent; 
+
+
