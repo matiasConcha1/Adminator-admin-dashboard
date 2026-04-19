@@ -3,7 +3,57 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+    <title>Perfil</title>
+    <style>
+      #loader {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000;
+      }
+
+      #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body class="app">
     <!-- @TOC -->
@@ -22,7 +72,7 @@
 
     <!-- @Page Loader -->
     <!-- =================================================== -->
-    <div id='loader' class="pos-f h-100vh w-100 bgc-deep-purple-50 z-9">
+    <div id='loader'>
       <div class="spinner"></div>
     </div>
 
@@ -30,8 +80,8 @@
       window.addEventListener('load', function load() {
         const loader = document.getElementById('loader');
         setTimeout(function() {
-          loader.classList.add('fadeOut');
-        }, 3000);
+            loader.classList.add('fadeOut');
+        }, 300);
       });
     </script>
 
@@ -126,7 +176,7 @@
                 <span class="title">Formularios</span>
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
               <a class="sidebar-link" href="ui.html">
                 <span class="icon-holder">
                     <i class="c-pink-500 ti-palette"></i>
@@ -182,10 +232,10 @@
                     <i class="ti-angle-right"></i>
                   </span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu">                                
                 <li>
                   <a class='sidebar-link' href="blank.html">En blanco</a>
-                </li>                
+                </li>
                 <li>
                   <a class='sidebar-link' href="404.html">404</a>
                 </li>
@@ -262,11 +312,11 @@
             <ul class="nav-right">
               <li class="notifications dropdown">
                 <span class="counter bgc-red">3</span>
-                <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
+                <a href="" class="dropdown-toggle no-after" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="ti-bell"></i>
                 </a>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="pX-20 pY-15 bdB">
                     <i class="ti-bell pR-10"></i>
                     <span class="fsz-sm fw-600 c-grey-900">Notificaciones</span>
@@ -335,11 +385,11 @@
               </li>
               <li class="notifications dropdown">
                 <span class="counter bgc-blue">3</span>
-                <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
+                <a href="" class="dropdown-toggle no-after" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="ti-email"></i>
                 </a>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="pX-20 pY-15 bdB">
                     <i class="ti-email pR-10"></i>
                     <span class="fsz-sm fw-600 c-grey-900">Correos</span>
@@ -422,15 +472,15 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-bs-toggle="dropdown">
-                  <div class="peer me-10">
+                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="peer mR-10">
                     <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
                   </div>
                   <div class="peer">
                     <span class="fsz-sm c-grey-900">Juan Pérez</span>
                   </div>
                 </a>
-                <ul class="dropdown-menu fsz-sm">
+                <ul class="dropdown-menu fsz-sm" aria-labelledby="dropdownMenuLink">
                   <li>
                     <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                       <i class="ti-settings mR-10"></i>
@@ -464,7 +514,102 @@
 
         <!-- ### $App Screen Content ### -->
         <main class='main-content bgc-grey-100'>
-          <div id='mainContent'></div>
+          <div id='mainContent'>
+            <div class="full-container">
+              <div class="row gap-20">
+                <div class="col-lg-4">
+                  <div class="dashboard-card ta-c">
+                    <button type="button" class="profile-avatar-trigger mB-20" data-avatar-trigger aria-label="Cambiar foto de perfil">
+                      <img data-session-avatar class="w-6r h-6r bdrs-50p" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar">
+                      <span class="profile-avatar-badge"><i class="ti-camera"></i></span>
+                    </button>
+                    <input class="d-n" type="file" accept="image/*" data-avatar-input>
+                    <p class="section-kicker mB-10">Perfil profesional</p>
+                    <h3 class="mB-5" data-session-field="name">Valentina Soto</h3>
+                    <p class="c-grey-600 mB-5" data-session-field="role">Directora de Operaciones</p>
+                    <p class="c-grey-600 mB-20" data-session-field="email">valentina.soto@administrador.local</p>
+                    <p class="c-grey-600 mB-20" data-avatar-helper>Haz clic en la foto para actualizar tu imagen.</p>
+                    <div class="p-15 bdrs-16 bgc-grey-100">
+                      <p class="mB-10 fw-600">Resumen</p>
+                      <p class="mB-0 c-grey-700" data-session-field="summary">Lidera la operacion diaria, coordina equipos y mantiene visibilidad ejecutiva.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="dashboard-card mB-20">
+                    <div class="d-flex jc-sb ai-c mB-20">
+                      <div>
+                        <p class="section-kicker mB-10">Datos personales</p>
+                        <h4 class="mB-0">Informacion de contacto</h4>
+                      </div>
+                      <span class="badge bg-success">Activo</span>
+                    </div>
+                    <div class="alert alert-success d-n mB-20" data-profile-feedback></div>
+                    <form class="row g-3" data-profile-form>
+                      <div class="col-md-6">
+                        <label class="form-label">Nombre completo</label>
+                        <input class="form-control" data-session-field="name" type="text">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Nombre de usuario</label>
+                        <input class="form-control" data-session-field="username" type="text" placeholder="Ej. valentina.soto">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Correo</label>
+                        <input class="form-control" data-session-field="email" type="email">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Cargo</label>
+                        <input class="form-control" data-session-field="role" type="text">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Telefono</label>
+                        <input class="form-control" data-session-field="phone" type="text">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ubicacion</label>
+                        <input class="form-control" data-session-field="location" type="text">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Area</label>
+                        <input class="form-control" data-session-field="department" type="text">
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label">Resumen ejecutivo</label>
+                        <textarea class="form-control" rows="4" data-session-field="summary"></textarea>
+                      </div>
+                      <div class="col-12 d-flex jc-fe">
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="dashboard-card">
+                    <p class="section-kicker mB-10">Actividad reciente</p>
+                    <div class="row g-3">
+                      <div class="col-md-4">
+                        <div class="p-20 bdrs-16 bgc-grey-100">
+                          <h5 class="mB-5">12</h5>
+                          <p class="mB-0 c-grey-600">Proyectos activos</p>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-20 bdrs-16 bgc-grey-100">
+                          <h5 class="mB-5">5</h5>
+                          <p class="mB-0 c-grey-600">Reuniones esta semana</p>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-20 bdrs-16 bgc-grey-100">
+                          <h5 class="mB-5">98%</h5>
+                          <p class="mB-0 c-grey-600">Cumplimiento operativo</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
 
         <!-- ### $App Screen Footer ### -->

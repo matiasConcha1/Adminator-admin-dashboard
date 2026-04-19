@@ -3,7 +3,57 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+    <title>Configuracion</title>
+    <style>
+      #loader {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000;
+      }
+
+      #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body class="app">
     <!-- @TOC -->
@@ -22,7 +72,7 @@
 
     <!-- @Page Loader -->
     <!-- =================================================== -->
-    <div id='loader' class="pos-f h-100vh w-100 bgc-deep-purple-50 z-9">
+    <div id='loader'>
       <div class="spinner"></div>
     </div>
 
@@ -30,8 +80,8 @@
       window.addEventListener('load', function load() {
         const loader = document.getElementById('loader');
         setTimeout(function() {
-          loader.classList.add('fadeOut');
-        }, 3000);
+            loader.classList.add('fadeOut');
+        }, 300);
       });
     </script>
 
@@ -126,7 +176,7 @@
                 <span class="title">Formularios</span>
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
               <a class="sidebar-link" href="ui.html">
                 <span class="icon-holder">
                     <i class="c-pink-500 ti-palette"></i>
@@ -182,10 +232,10 @@
                     <i class="ti-angle-right"></i>
                   </span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu">                                
                 <li>
                   <a class='sidebar-link' href="blank.html">En blanco</a>
-                </li>                
+                </li>
                 <li>
                   <a class='sidebar-link' href="404.html">404</a>
                 </li>
@@ -262,11 +312,11 @@
             <ul class="nav-right">
               <li class="notifications dropdown">
                 <span class="counter bgc-red">3</span>
-                <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
+                <a href="" class="dropdown-toggle no-after" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="ti-bell"></i>
                 </a>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="pX-20 pY-15 bdB">
                     <i class="ti-bell pR-10"></i>
                     <span class="fsz-sm fw-600 c-grey-900">Notificaciones</span>
@@ -335,11 +385,11 @@
               </li>
               <li class="notifications dropdown">
                 <span class="counter bgc-blue">3</span>
-                <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
+                <a href="" class="dropdown-toggle no-after" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="ti-email"></i>
                 </a>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="pX-20 pY-15 bdB">
                     <i class="ti-email pR-10"></i>
                     <span class="fsz-sm fw-600 c-grey-900">Correos</span>
@@ -422,15 +472,15 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-bs-toggle="dropdown">
-                  <div class="peer me-10">
+                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="peer mR-10">
                     <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
                   </div>
                   <div class="peer">
                     <span class="fsz-sm c-grey-900">Juan Pérez</span>
                   </div>
                 </a>
-                <ul class="dropdown-menu fsz-sm">
+                <ul class="dropdown-menu fsz-sm" aria-labelledby="dropdownMenuLink">
                   <li>
                     <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                       <i class="ti-settings mR-10"></i>
@@ -464,7 +514,100 @@
 
         <!-- ### $App Screen Content ### -->
         <main class='main-content bgc-grey-100'>
-          <div id='mainContent'></div>
+          <div id='mainContent'>
+            <div class="full-container">
+              <div class="row gap-20">
+                <div class="col-lg-8">
+                  <div class="dashboard-card mB-20">
+                    <p class="section-kicker mB-10">Preferencias</p>
+                    <h4 class="mB-20">Configuracion general</h4>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label">Idioma</label>
+                        <select class="form-select">
+                          <option selected>Espanol</option>
+                          <option>Ingles</option>
+                          <option>Portugues</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Zona horaria</label>
+                        <select class="form-select">
+                          <option selected>America/Santiago</option>
+                          <option>America/Bogota</option>
+                          <option>Europe/Madrid</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label">Resumen diario</label>
+                        <input class="form-control" type="text" value="08:30 - correo con indicadores y pendientes">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-card">
+                    <p class="section-kicker mB-10">Seguridad</p>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label">Contrasena actual</label>
+                        <input class="form-control" type="password" placeholder="Ingresa tu contrasena actual">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Nueva contrasena</label>
+                        <input class="form-control" type="password" placeholder="Define una nueva contrasena">
+                      </div>
+                      <div class="col-12">
+                        <div class="d-flex jc-sb ai-c p-15 bdrs-16 bgc-grey-100">
+                          <div>
+                            <strong>Autenticacion en dos pasos</strong>
+                            <p class="mB-0 c-grey-600">Protege el acceso con un codigo adicional.</p>
+                          </div>
+                          <div class="form-check form-switch m-0">
+                            <input class="form-check-input" type="checkbox" checked>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="dashboard-card mB-20">
+                    <p class="section-kicker mB-10">Tema</p>
+                    <h5 class="mB-15">Preferencia visual</h5>
+                    <div class="d-grid gap-10">
+                      <button type="button" class="btn btn-outline-primary ta-l">Usar selector superior para alternar claro y oscuro</button>
+                      <div class="p-15 bdrs-16 bgc-grey-100">
+                        <p class="mB-5 fw-600">Persistencia activa</p>
+                        <p class="mB-0 c-grey-600">La preferencia se guarda localmente y se aplica a todas las vistas.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-card">
+                    <p class="section-kicker mB-10">Notificaciones</p>
+                    <div class="d-grid gap-15">
+                      <div class="d-flex jc-sb ai-c">
+                        <span>Alertas por correo</span>
+                        <div class="form-check form-switch m-0">
+                          <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                      </div>
+                      <div class="d-flex jc-sb ai-c">
+                        <span>Resumen semanal</span>
+                        <div class="form-check form-switch m-0">
+                          <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                      </div>
+                      <div class="d-flex jc-sb ai-c">
+                        <span>Recordatorios de calendario</span>
+                        <div class="form-check form-switch m-0">
+                          <input class="form-check-input" type="checkbox">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
 
         <!-- ### $App Screen Footer ### -->
