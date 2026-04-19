@@ -29,14 +29,14 @@
         left: calc(50% - 20px);
         background-color: #333;
         border-radius: 100%;
-        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-        animation: sk-scaleout 1.0s infinite ease-in-out;
+        -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+        animation: sk-scaleout 1s infinite ease-in-out;
       }
 
       @-webkit-keyframes sk-scaleout {
         0% { -webkit-transform: scale(0) }
         100% {
-          -webkit-transform: scale(1.0);
+          -webkit-transform: scale(1);
           opacity: 0;
         }
       }
@@ -45,16 +45,17 @@
         0% {
           -webkit-transform: scale(0);
           transform: scale(0);
-        } 100% {
-          -webkit-transform: scale(1.0);
-          transform: scale(1.0);
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
           opacity: 0;
         }
       }
     </style>
   </head>
   <body class="app">
-    <div id='loader'>
+    <div id="loader">
       <div class="spinner"></div>
     </div>
 
@@ -65,40 +66,73 @@
           loader.classList.add('fadeOut');
         }, 300);
       });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[data-password-toggle]').forEach(function(toggle) {
+          toggle.addEventListener('click', function() {
+            const wrapper = toggle.closest('.password-field');
+            const input = wrapper ? wrapper.querySelector('input') : null;
+            const icon = toggle.querySelector('i');
+            if (!input || !icon) return;
+
+            const showPassword = input.type === 'password';
+            input.type = showPassword ? 'text' : 'password';
+            toggle.setAttribute('aria-pressed', showPassword ? 'true' : 'false');
+            toggle.setAttribute('aria-label', showPassword ? 'Ocultar contrasena' : 'Mostrar contrasena');
+            icon.className = showPassword ? 'ti-eye-off' : 'ti-eye';
+          });
+        });
+      });
     </script>
+
     <div class="peers ai-s fxw-nw h-100vh">
       <div class="peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("assets/static/images/bg.jpg")'>
         <div class="pos-a centerXY">
-          <div class="bgc-white bdrs-50p pos-r" style='width: 120px; height: 120px;'>
+          <div class="bgc-white bdrs-50p pos-r" style="width: 120px; height: 120px;">
             <img class="pos-a centerXY logo-auth" src="assets/static/images/logo.svg" alt="" style="max-width: 60px; max-height: 60px;">
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
+      <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style="min-width: 320px;">
         <h4 class="fw-300 c-grey-900 mB-40">Registrarse</h4>
-        <form>
+        <form data-signup-form>
           <div class="mb-3">
-            <label class="form-label" class="text-normal text-dark">Usuario</label>
-            <input type="text" class="form-control" Placeholder='Juan Pérez'>
+            <label class="text-normal text-dark form-label">Usuario</label>
+            <input name="name" type="text" class="form-control" placeholder="Juan Perez">
           </div>
           <div class="mb-3">
-            <label class="form-label" class="text-normal text-dark">Correo Dirección</label>
-            <input type="email" class="form-control" Placeholder='name@email.com'>
+            <label class="text-normal text-dark form-label">Correo</label>
+            <input name="email" type="email" class="form-control" placeholder="nombre@empresa.com">
           </div>
           <div class="mb-3">
-            <label class="form-label" class="text-normal text-dark">Contraseña</label>
-            <input type="password" class="form-control" placeholder="Contraseña">
+            <label class="text-normal text-dark form-label">Contrasena</label>
+            <div class="password-field">
+              <input name="password" type="password" class="form-control" placeholder="Crea una contrasena">
+              <button type="button" class="password-toggle-btn" data-password-toggle="true" aria-label="Mostrar contrasena" aria-pressed="false">
+                <i class="ti-eye"></i>
+              </button>
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label" class="text-normal text-dark">Confirmar contraseña</label>
-            <input type="password" class="form-control" placeholder="Contraseña">
+            <label class="text-normal text-dark form-label">Confirmar contrasena</label>
+            <div class="password-field">
+              <input name="confirm_password" type="password" class="form-control" placeholder="Repite la contrasena">
+              <button type="button" class="password-toggle-btn" data-password-toggle="true" aria-label="Mostrar contrasena" aria-pressed="false">
+                <i class="ti-eye"></i>
+              </button>
+            </div>
           </div>
-          <div class="mb-3">
-            <button class="btn btn-primary btn-color">Registrarse</button>
+          <div class="alert alert-primary d-n" data-signup-feedback role="alert"></div>
+          <div class="peers ai-c jc-sb fxw-nw">
+            <div class="peer">
+              <a href="signin.html" class="c-blue-500 td-n">Ya tengo cuenta</a>
+            </div>
+            <div class="peer">
+              <button type="submit" class="btn btn-primary btn-color">Registrarse</button>
+            </div>
           </div>
         </form>
       </div>
     </div>
-
   </body>
 </html>
