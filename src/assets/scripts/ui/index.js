@@ -100,7 +100,10 @@ export default (function () {
     }
     
     init() {
-      this.menu = this.element.parentNode.querySelector('.dropdown-menu');
+      const parent = this.element.parentNode;
+      if (!parent) return;
+
+      this.menu = parent.querySelector('.dropdown-menu');
       if (this.menu) {
         this.element.addEventListener('click', (e) => {
           e.preventDefault();
@@ -110,7 +113,8 @@ export default (function () {
         
         // Close on outside click
         document.addEventListener('click', (e) => {
-          if (!this.element.parentNode.contains(e.target)) {
+          const currentParent = this.element.parentNode;
+          if (!currentParent || !currentParent.contains(e.target)) {
             this.hide();
           }
         });
